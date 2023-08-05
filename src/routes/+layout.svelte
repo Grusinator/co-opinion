@@ -1,6 +1,8 @@
 <script>
 	import Header from './Header.svelte';
 	import './styles.css';
+	import '@picocss/pico'
+  	// import '../app.css'
 </script>
 
 <div class="app">
