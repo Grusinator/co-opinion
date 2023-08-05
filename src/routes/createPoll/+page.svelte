@@ -4,11 +4,11 @@
 	let options = '';
 	
 	const createPoll = () => {
-		let optionsArray = options.split(',');
-		polls.push({description: description, options: optionsArray});
-		description = '';
-		options = '';
-	}
+	let optionsArray = options.split(',').map(option => ({text: option.trim(), votes: 0}));
+	polls.update(currentPolls => [...currentPolls, {description: description}]);
+	description = '';
+	options = '';
+}
 </script>
 
 <h2>Create a Poll</h2>

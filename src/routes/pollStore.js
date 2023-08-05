@@ -1,4 +1,11 @@
 import { writable } from 'svelte/store';
 
-// This creates a writable store with the initial value of an empty array.
-export const polls = writable([]);
+const defaultPoll = {
+    id: 1,
+    description: "Do you like Svelte?",
+    // answers: [
+    //     { text: 'Yes', votes: 0 },
+    //     { text: 'No', votes: 0 }
+    // ]
+}
+export const polls = writable([defaultPoll]);
