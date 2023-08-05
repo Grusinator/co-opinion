@@ -1,5 +1,5 @@
 <script>
-	import { users } from '../userStore.js';
+	import { users } from '../userStore';
 
 	let username = '';
 	let password = '';

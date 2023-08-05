@@ -36,6 +36,14 @@
 			</li>
 			<li aria-current={$page.url.pathname.startsWith('/pico-test') ? 'page' : undefined}>
 				<a href="/pico-test">Pico-test</a>
+			<li aria-current={$page.url.pathname.startsWith('/createPoll') ? 'page' : undefined}>
+				<a href="/createPoll">Create Poll</a>
+			</li>
+			<li aria-current={$page.url.pathname.startsWith('/listPolls') ? 'page' : undefined}>
+				<a href="/listPolls">Polls</a>
+			</li>
+			<li aria-current={$page.url.pathname.startsWith('/listUsers') ? 'page' : undefined}>
+				<a href="/listUsers">Users</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
