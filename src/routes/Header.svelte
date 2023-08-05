@@ -25,6 +25,15 @@
 			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
 				<a href="/sverdle">Sverdle</a>
 			</li>
+			<li aria-current={$page.url.pathname.startsWith('/feed') ? 'page' : undefined}>
+				<a href="/feed">Feed</a>
+			</li>
+			<li aria-current={$page.url.pathname.startsWith('/login') ? 'page' : undefined}>
+				<a href="/login">Login</a>
+			</li>
+			<li aria-current={$page.url.pathname.startsWith('/register') ? 'page' : undefined}>
+				<a href="/register">Register</a>
+			</li>
 			<li aria-current={$page.url.pathname.startsWith('/pico-test') ? 'page' : undefined}>
 				<a href="/pico-test">Pico-test</a>
 			</li>
