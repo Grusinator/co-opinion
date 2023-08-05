@@ -1,5 +1,5 @@
-<script>
-	import { polls } from '../pollStore.js';
+<script lang="ts">
+	import { polls } from '../pollStore';
 	let description = '';
 	let options = '';
 	

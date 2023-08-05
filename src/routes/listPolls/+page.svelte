@@ -1,5 +1,5 @@
 <script>
-	import { polls } from '../pollStore.js';
+	import { polls } from '../pollStore';
 </script>
 
 <h2>Poll List</h2>
