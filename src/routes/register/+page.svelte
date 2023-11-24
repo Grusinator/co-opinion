@@ -1,25 +1,13 @@
 <script>
-	import { users } from '../userStore';
+	import { userController } from '../api/user';
 
 	let username = '';
 	let password = '';
 
 	const register = () => {
-		// Check if user already exists
-		let userExists = false;
-		$users.forEach(user => {
-			if (user.username === username) {
-				userExists = true;
-			}
-		});
-
-		if (userExists) {
-			alert('User already exists');
-		} else {
-			// Update the store
-			users.update(existingUsers => [...existingUsers, { username, password }]);
-			alert('Registration successful');
-		}
+		userController.createUser(username, password);
+		username = '';
+		password = '';
 	};
 </script>
 

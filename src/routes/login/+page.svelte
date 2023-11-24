@@ -1,5 +1,5 @@
 <script>
-	import { users } from '../userStore';
+	import { userController } from '../api/user';
 
 	let username = '';
 	let password = '';
@@ -7,8 +7,7 @@
 
 	const login = () => {
 		// Find the user
-		const user = $users.find(user => user.username === username && user.password === password);
-
+		const user = userController.login(username, password);
 		if (user) {
 			message = 'Login successful';
 		} else {
