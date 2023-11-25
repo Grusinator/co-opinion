@@ -8,8 +8,18 @@ interface Vote {
 
 class VoteController {
   private votes: Vote[] = [];
+  listVotes() {
+	  return this.votes;
+  }
 
-  createVote(vote: Vote): Vote {
+
+  createVote(username: string, pollID: number, choiceID: number): Vote {
+    const vote: Vote = {
+      Username: username,
+      PollID: pollID,
+      ChoiceID: choiceID,
+      Timestamp: new Date()
+    };
     this.votes.push(vote);
     return vote;
   }
