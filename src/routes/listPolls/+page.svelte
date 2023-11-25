@@ -4,7 +4,6 @@
 	let polls = pollController.listPolls();
 	let choices = choiceController.listChoices();
 
-
 	// Add an example poll for debugging
 	polls = [
 		...polls,
@@ -21,21 +20,20 @@
 			PollID: 'example-poll-id'
 		}
 	];
-	</script>
+</script>
 
-	<h2>Poll List</h2>
+<h2>Poll List</h2>
 
-	{#each polls as poll}
-		<div>
-			<h3>{poll.Title}</h3>
-			<p>{poll.Description}</p>
-			<ul>
-				{#each choices as choice}
-					{#if choice.PollID === poll.PollID}
-						<li>{choice.ChoiceText}</li>
-					{/if}
-				{/each}
-			</ul>
-		</div>
-	{/each}
-
+{#each polls as poll}
+	<div>
+		<h3>{poll.Title}</h3>
+		<p>{poll.Description}</p>
+		<ul>
+			{#each choices as choice}
+				{#if choice.PollID === poll.PollID}
+					<li>{choice.ChoiceText}</li>
+				{/if}
+			{/each}
+		</ul>
+	</div>
+{/each}

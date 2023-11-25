@@ -6,9 +6,6 @@
 
 <header>
 	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
 	</div>
 
 	<nav>
@@ -19,12 +16,12 @@
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Home</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
+			<!-- <li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="/about">About</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
+			</li> -->
+			<!-- <li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
 				<a href="/sverdle">Sverdle</a>
-			</li>
+			</li> -->
 			<li aria-current={$page.url.pathname.startsWith('/feed') ? 'page' : undefined}>
 				<a href="/feed">Feed</a>
 			</li>
@@ -34,8 +31,9 @@
 			<li aria-current={$page.url.pathname.startsWith('/register') ? 'page' : undefined}>
 				<a href="/register">Register</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('/pico-test') ? 'page' : undefined}>
+			<!-- <li aria-current={$page.url.pathname.startsWith('/pico-test') ? 'page' : undefined}>
 				<a href="/pico-test">Pico-test</a>
+			</li> -->
 			<li aria-current={$page.url.pathname.startsWith('/createPoll') ? 'page' : undefined}>
 				<a href="/createPoll">Create Poll</a>
 			</li>
