@@ -1,23 +1,12 @@
 <script>
-	import { userController } from '../api/user';
+    import { userController, currentUser } from '../api/user';
 
-	let username = '';
-	let password = '';
-	let message = '';
+    let username = '';
+    let password = '';
 
-	const login = () => {
-		// Find the user
-		const user = userController.login(username, password);
-		if (user) {
-			message = 'Login successful';
-		} else {
-			message = 'Invalid username or password';
-		}
-	};
-
-	const resetMessage = () => {
-		message = '';
-	};
+    const login = () => {
+        userController.login(username, password);
+    };
 </script>
 
 <h1>Login</h1>
@@ -25,15 +14,15 @@
 <form on:submit|preventDefault={login}>
 	<label for="username">
 		Username
-		<input id="username" bind:value={username} type="text" required on:input={resetMessage} />
+		<input id="username" bind:value={username} type="text" required />
 	</label>
 	<label for="password">
 		Password
-		<input id="password" bind:value={password} type="password" required on:input={resetMessage} />
+		<input id="password" bind:value={password} type="password" required />
 	</label>
 	<button type="submit">Login</button>
 </form>
-
-{#if message}
-	<p>{message}</p>
+	
+{#if $currentUser !== undefined}
+	<p>Login successful, {$currentUser.Username}!</p>
 {/if}

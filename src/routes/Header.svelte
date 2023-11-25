@@ -1,7 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
+	import { currentUser } from './api/user';
 </script>
 
 <header>
@@ -43,6 +42,15 @@
 			<li aria-current={$page.url.pathname.startsWith('/listUsers') ? 'page' : undefined}>
 				<a href="/listUsers">Users</a>
 			</li>
+			{#if $currentUser}
+				<li>
+					<p>Logged in as {$currentUser.Username}</p>
+				</li>
+        	{:else}
+				<li>
+					<p>Not logged in</p>
+				</li>
+			{/if}
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
@@ -50,9 +58,6 @@
 	</nav>
 
 	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
 	</div>
 </header>
 
