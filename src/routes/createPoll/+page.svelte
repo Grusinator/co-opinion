@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { pollController } from '../api/poll';
-	import { choiceController } from '../api/choice';
+	import { pollController } from '../../api/poll';
+	import { choiceController } from '../../api/choice';
 
 	let title = '';
 	let description = '';

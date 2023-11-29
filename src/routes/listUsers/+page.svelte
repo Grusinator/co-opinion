@@ -1,5 +1,5 @@
 <script>
-	import { userController } from '../api/user';
+	import { userController } from '../../api/user';
 	import { writable } from 'svelte/store';
 	let users = writable(userController.listUsers()); 
 	/* Create a writable store with the list of users,

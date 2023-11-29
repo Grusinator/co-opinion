@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import { currentUser } from './api/user';
+	import { currentUser } from '../api/user';
 </script>
 
 <header>

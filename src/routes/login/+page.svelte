@@ -1,5 +1,5 @@
 <script>
-    import { userController, currentUser } from '../api/user';
+    import { userController, currentUser } from '../../api/user';
 
     let username = '';
     let password = '';

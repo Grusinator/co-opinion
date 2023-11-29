@@ -1,3 +1,5 @@
+import { writable } from "svelte/store";
+
 // Votes Model
 interface Vote {
   Username: string;
@@ -6,14 +8,19 @@ interface Vote {
   Timestamp: Date;
 }
 
+export const votes = writable<Vote[]>([])
+
 class VoteController {
   private votes: Vote[] = [];
+
   listVotes() {
-	  return this.votes;
+    return this.votes;
   }
 
-
   createVote(username: string, pollID: number, choiceID: number): Vote {
+    if (this.getVote(username, pollID) !== undefined) {
+      throw new Error('User has already voted in this poll.');
+    }
     const vote: Vote = {
       Username: username,
       PollID: pollID,
@@ -21,6 +28,7 @@ class VoteController {
       Timestamp: new Date()
     };
     this.votes.push(vote);
+    votes.update(votesArray => [...votesArray, vote]); 
     return vote;
   }
 
@@ -49,5 +57,4 @@ class VoteController {
 }
 
 export const voteController = new VoteController();
-
 

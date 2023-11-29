@@ -1,11 +1,10 @@
 <script>
-	import { pollController } from '../api/poll';
-	import { choiceController } from '../api/choice';
-	import { voteController } from '../api/vote';
-	import { currentUser } from '../api/user';
+	import { pollController } from '../../api/poll';
+	import { choiceController } from '../../api/choice';
+	import { voteController, votes } from '../../api/vote';
+	import { currentUser } from '../../api/user';
 	let polls = pollController.listPolls();
 	let choices = choiceController.listChoices();
-	let votes = voteController.listVotes();
 
 	// Add an example poll for debugging
 	polls = [
@@ -13,25 +12,26 @@
 		{
 			Title: 'Example Poll',
 			Description: 'This is an example poll for debugging purposes.',
-			PollID: 'example-poll-id'
+			PollID: 1
 		}
 	];
 	choices = [
 		...choices,
 		{
-			ChoiceText: 'Example Choice',
-			PollID: 'example-poll-id',
+			Text: 'Example Choice',
+			PollID: 1,
+			ChoiceID: 1
+		},
+		{
+			Text: 'Example Choice 2',
+			PollID: 1,
+			ChoiceID: 2
 		}
 	];
-
-	//pollController.createPoll('Example Poll', 'This is an example poll for debugging purposes.', 'example-user-id');
-
 
 	function vote(pollID, choiceID) {
 		voteController.createVote(currentUser.Username, pollID, choiceID);
 	}
-
-	// how do i make the vote button work? something with how the subscribe thing is working
 
 </script>
 
@@ -45,8 +45,13 @@
 			{#each choices as choice}
 				{#if choice.PollID === poll.PollID}
 					<li>{choice.Text}</li>
-					<button on:click={() => vote(poll.PollID, choice.ChoiceID)}>Vote</button>
-					<p>Number of votes: {votes.filter(vote => vote.ChoiceID === choice.ChoiceID).length}</p>
+					<!-- <button on:click={() => vote(poll.PollID, choice.ChoiceID)}>Vote</button> -->
+					<button on:click={() => vote(poll.PollID, choice.ChoiceID)}
+						disabled={
+							$votes.find((vote) => vote.Username === $currentUser.Username && vote.PollID === choice.PollID) != undefined
+						}
+						>Vote2</button>
+					<p>Number of votes: {$votes.filter(vote => vote.ChoiceID === choice.ChoiceID).length}</p>
 				{/if}
 			{/each}
 		</ul>
