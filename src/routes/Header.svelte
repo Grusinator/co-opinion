@@ -45,6 +45,7 @@
 			{#if $currentUser}
 				<li>
 					<p>Logged in as {$currentUser.Username}</p>
+					<button on:click={() => currentUser.set(undefined)}>Logout</button>
 				</li>
         	{:else}
 				<li>

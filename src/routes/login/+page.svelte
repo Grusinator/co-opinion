@@ -1,11 +1,20 @@
 <script>
-    import { userController, currentUser } from '../../api/user';
+    import { userController } from '../../api/user';
+	import { currentUser } from '../../api/stores';
 
     let username = '';
     let password = '';
 
+	//debugging purposes
+	// if (currentUser === undefined) {
+	// 	userController.createUser('admin', 'admin');
+	// 	let user = userController.login('admin', 'admin');
+	// 	currentUser.set(user);
+	// }
+
     const login = () => {
-        userController.login(username, password);
+        let user = userController.login(username, password);
+		currentUser.set(user);
     };
 </script>
 

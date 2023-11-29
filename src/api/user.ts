@@ -1,17 +1,15 @@
 
 import { writable } from 'svelte/store';
 // Users Model
-interface User {
+export interface User {
     Username: string;
     Email: string;
     PasswordHash: string;
     CreatedAt: Date;
 }
 
-export const currentUser = writable<User | undefined>(undefined);
-
 class UserController {
-    private users: User[] = [{Username: "admin", Email: "", PasswordHash: "admin", CreatedAt: new Date()}];
+    private users: User[] = [];
 
     createUser(username: string, password: string): User {
         const existingUser = this.users.find((u) => u.Username === username);
@@ -35,17 +33,9 @@ class UserController {
     login(username: string, password: string): User | undefined {
         const user = this.getUser(username);
         if (user && user.PasswordHash === this.hashPassword(password)) {
-            currentUser.set(user); 
-            // Set the current user in the store but outside of this class, 
-            // not super clean, but i cant subscribe if its inside the class
             return user;
         }
         return undefined;
-    }
-
-    logout() {
-        // ... your logout logic ...
-        currentUser.set(undefined);
     }
 
     private hashPassword(password: string): string {

@@ -1,14 +1,12 @@
 import { writable } from "svelte/store";
 
 // Votes Model
-interface Vote {
+export interface Vote {
   Username: string;
   PollID: number;
   ChoiceID: number;
   Timestamp: Date;
 }
-
-export const votes = writable<Vote[]>([])
 
 class VoteController {
   private votes: Vote[] = [];
@@ -28,7 +26,6 @@ class VoteController {
       Timestamp: new Date()
     };
     this.votes.push(vote);
-    votes.update(votesArray => [...votesArray, vote]); 
     return vote;
   }
 

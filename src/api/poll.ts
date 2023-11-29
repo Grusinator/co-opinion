@@ -1,5 +1,5 @@
 // Polls Model
-interface Poll {
+export interface Poll {
     PollID: number;
     CreatedBy: string;
     Title: string;

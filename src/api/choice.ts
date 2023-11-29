@@ -1,5 +1,5 @@
 // Choices Model
-interface Choice {
+export interface Choice {
     ChoiceID: number;
     PollID: number;
     Text: string;
